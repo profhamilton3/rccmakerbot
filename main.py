@@ -1,11 +1,59 @@
 def on_received_number(receivedNumber):
-    basic.clear_screen()
-    if receivedNumber == 1:
+    if 1 == receivedNumber:
+        basic.show_icon(IconNames.FABULOUS)
         wuKong.set_all_motor(100, 100)
-    elif receivedNumber == 0:
-        wuKong.set_all_motor(0, 0)
+        basic.show_arrow(ArrowNames.NORTH)
+    elif 2 == receivedNumber:
+        basic.show_arrow(ArrowNames.EAST)
+        wuKong.set_all_motor(25, 75)
+        basic.pause(250)
+    elif 3 == receivedNumber:
+        basic.show_arrow(ArrowNames.WEST)
+        wuKong.set_all_motor(75, 25)
+        basic.pause(250)
+    elif 4 == receivedNumber:
+        basic.show_arrow(ArrowNames.SOUTH)
+        wuKong.set_all_motor(-25, -25)
+    elif 5 == receivedNumber:
+        basic.show_arrow(ArrowNames.NORTH_EAST)
+        wuKong.set_all_motor(60, 20)
+        basic.pause(500)
+    elif 6 == receivedNumber:
+        basic.show_icon(IconNames.UMBRELLA)
+        wuKong.set_all_motor(10, 40)
+        basic.pause(1000)
+    elif 7 == receivedNumber:
+        basic.show_arrow(ArrowNames.SOUTH_WEST)
+        wuKong.set_all_motor(25, 75)
+        basic.pause(500)
+    elif 8 == receivedNumber:
+        basic.show_arrow(ArrowNames.SOUTH_EAST)
+        basic.show_icon(IconNames.COW)
+        wuKong.set_all_motor(75, 15)
+        basic.pause(500)
+    elif 9 == receivedNumber:
+        basic.show_number(5)
+    elif 10 == receivedNumber:
+        pass
+    elif 11 == receivedNumber:
+        pass
+    elif 12 == receivedNumber:
+        basic.show_icon(IconNames.BUTTERFLY)
+        wuKong.set_all_motor(-15, 15)
+        basic.pause(2000)
+    elif 13 == receivedNumber:
+        basic.show_icon(IconNames.STICK_FIGURE)
+        wuKong.set_all_motor(15, -15)
+        basic.pause(2000)
+    elif 14 == receivedNumber:
+        pass
+    elif 15 == receivedNumber:
+        pass
+    elif 0 == receivedNumber:
+        basic.show_number(0)
     else:
-        wuKong.stop_all_motor()
+        music._play_default_background(music.built_in_playable_melody(Melodies.FUNERAL),
+            music.PlaybackMode.IN_BACKGROUND)
 radio.on_received_number(on_received_number)
 
 def on_button_pressed_a():
